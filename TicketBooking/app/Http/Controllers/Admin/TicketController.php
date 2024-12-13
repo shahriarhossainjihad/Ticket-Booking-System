@@ -30,6 +30,9 @@ class TicketController extends Controller
      */
     public function purchase(Request $request)
     {
+        // @dd($request);
+        \Log::info($request->all());
+
         $request->validate([
             'trip_id' => 'required|exists:trips,id',
         ]);
