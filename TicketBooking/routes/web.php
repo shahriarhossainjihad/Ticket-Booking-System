@@ -45,23 +45,23 @@ Route::middleware(['auth:api'])->group(function () {
     })->name('dashboard');
 
     // Admin Routes
-    // Route::prefix('admin')->group(function () {
-    //     // Admin Dashboard
-    //     Route::get('/dashboard', function () {
-    //         return view('admin.dashboard'); // Admin dashboard Blade view
-    //     })->name('admin.dashboard');
+    Route::prefix('admin')->group(function () {
+        // Admin Dashboard
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard'); // Admin dashboard Blade view
+        })->name('admin.dashboard');
 
-    //     // Vehicles and Vehicle Types
-    //     Route::get('/vehicle-types', [VehicleTypeController::class, 'index'])->name('admin.vehicle-types.index');
-    //     Route::get('/vehicles', [VehicleController::class, 'index'])->name('admin.vehicles.index');
+        // Vehicles and Vehicle Types
+        Route::get('/vehicle-types', [VehicleTypeController::class, 'index'])->name('admin.vehicle-types.index');
+        Route::get('/vehicles', [VehicleController::class, 'index'])->name('admin.vehicles.index');
 
-    //     // Trips and Schedules
-    //     Route::get('/trip-schedules', [TripScheduleController::class, 'index'])->name('admin.trip-schedules.index');
-    //     Route::get('/trips', [TripController::class, 'index'])->name('admin.trips.index');
+        // Trips and Schedules
+        Route::get('/trip-schedules', [TripScheduleController::class, 'index'])->name('admin.trip-schedules.index');
+        Route::get('/trips', [TripController::class, 'index'])->name('admin.trips.index');
 
-    //     // Tickets
-    //     Route::get('/tickets', [TicketController::class, 'index'])->name('admin.tickets.index');
-    // });
+        // Tickets
+        Route::get('/tickets', [TicketController::class, 'index'])->name('admin.tickets.index');
+    });
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
